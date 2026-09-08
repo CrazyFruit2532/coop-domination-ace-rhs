@@ -58,10 +58,11 @@ if (hasInterface) then {
 	d_ak_hslm = actionKeys "HeliSlingLoadManager";
 	
 	//d_player_radioprotocol = profileNamespace getVariable ["dom_player_radioprotocol", false];
-
+/*
 	if (isMultiplayer) then {
-		["d_server_name", [500, 500], "ICON", "ColorYellow", [2, 2], format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1583a", serverName], 0, "hd_dot"] call d_fnc_CreateMarkerLocal;
+		["d_server_name", [500, 500], "ICON", "", [0.5, 0.5], format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1583a", serverName], 0, "flag_Russia"] call d_fnc_CreateMarkerLocal;
 	};
+*/
 } else {
 	setViewDistance 1600;
 	setObjectViewDistance [1700, 0];
@@ -558,8 +559,8 @@ if (isServer) then {
 		_specialv call d_fnc_initvecsspecial;
 	};
 #else
-	private _choppers = [[d_chopper_1,3001,true,600],[d_chopper_2,3002,true,1500],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,600],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600],
-		[d_choppero_1,4001,true,600],[d_choppero_2,4002,true,1500],[d_choppero_3,4003,false,1500],[d_choppero_4,4004,false,600],[d_choppero_5,4005,false,600],[d_choppero_6,4006,false,600]] select {!isNil {_x # 0}};
+	private _choppers = [[d_chopper_1,3001,false,600],[d_chopper_2,3002,false,600],[d_chopper_3,3003,false,600],[d_chopper_4,3004,false,600],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600],
+		[d_choppero_1,4001,false,600],[d_choppero_2,4002,false,600],[d_choppero_3,4003,false,600],[d_choppero_4,4004,false,600],[d_choppero_5,4005,false,600],[d_choppero_6,4006,false,600]] select {!isNil {_x # 0}};
 	
 	//[[d_chopper_1,3001,true,600],[d_chopper_2,3002,true,1500],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,600],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600],
 	//[d_choppero_1,4001,true,600],[d_choppero_2,4002,true,1500],[d_choppero_3,4003,false,1500],[d_choppero_4,4004,false,600],[d_choppero_5,4005,false,600],[d_choppero_6,4006,false,600]] call d_fnc_inithelirespawn2;
@@ -786,7 +787,7 @@ if (hasInterface) then {
 
 	if (d_with_ranked) then {
 		call {
-			if (d_rhs) exitWith {
+/*			if (d_rhs) exitWith {
 				call compileScript ["i_weapons_rhs.sqf", false];
 			};
 			if (d_cup) exitWith {
@@ -813,15 +814,18 @@ if (hasInterface) then {
 			if (d_spe) exitWith {
 				call compileScript ["i_weapons_SPE.sqf", false];
 			};
+*/
 			call compileScript ["i_weapons_default.sqf", false];
 		};
 	};
 };
 
+/*
 if (d_EnablePhronkFurniture > 0) then {
 	PF_Range=d_EnablePhronkFurniture; //Activation range on buildings to spawn furniture (Default = 60)
 	if (isServer)then {PFrun = false; 0 spawn compileFinal(preprocessFile"PF\init.sqf")};
 };
+*/
 d_init_processed = true;
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom d_init.sqf processed"];

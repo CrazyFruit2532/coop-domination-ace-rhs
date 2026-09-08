@@ -9425,16 +9425,16 @@
 <French>Le déchargement de munitions n'est possible que depuis le siège du pilote!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1434">
-<English>Domination action menus are available when you press the Teamswitch key (%1)\nTurn off 3D user markers with User key (%2) When empty no key is assigned\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned</English>
-<Spanish>El Menú de acción de Domination está disponible al pulsar la tecla (%1)\nTurn off 3D user markers with User key (%2) When empty no key is assigned\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned</Spanish>
-<Portuguese>Cartas de ação da dominación são disponíveis quando pulsa o Teamswitch chave (%1)\nTurn off 3D user markers with User key (%2) When empty no key is assigned\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned</Portuguese>
-<Korean>도미네이션 액션메뉴는 팀변경키 (%1)를 눌러 보실 수 있습니다.\n3D 유저마커를 끄실려면 (%2) 사용하시면 됩니다,단 키가 비어있을때 할당됩니다.\n이어플러그를 착용하고 빼실려면 (%3) 사용하시면 됩니다,단 키가 비어있을때 할당됩니다</Korean>
-<Japanese>Dominationアクションメニューはチームスイッチキー(%1)を押すと利用できます\nTurn off 3D user markers with User key (%2) When empty no key is assigned\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned</Japanese>
-<Original>Domination action menus are available when you press the Teamswitch key (%1)\nTurn off 3D user markers with User key (%2) When empty no key is assigned\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned</Original>
-<Russian>ДЛЯ ВКЛЮЧЕНИЯ МЕНЮ НАСТРОЕК НАЖМИТЕ (%1)\nTurn off 3D user markers with User key (%2) When empty no key is assigned\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned</Russian>
-<Chinesesimp>按(%1)键打开游戏互动菜单！！！\n按(%2)键关闭3D用户标记，为空时没有分配按键！！！\n按(%3)键戴上或取下耳塞标记，为空时没有分配按键！！！</Chinesesimp>
-<Chinese>按(%1)鍵打開遊戲互動菜單</Chinese>
-<French>Le menu Action de Domination est disponible en appuyant sur la touche (%1)\nDésactiver les marqueurs utilisateur 3D avec la touche Utilisateur (%2) Lorsqu'elle est vide, aucune touche n'est attribuée\nInsérez et retirez les bouchons d'oreille avec la touche Utilisateur (%3) Lorsqu'elle est vide, aucune clé n'est attribuée </French>
+<English>Domination action menus are available when you press the Teamswitch key (U)</English>
+<Spanish>El Menú de acción de Domination está disponible al pulsar la tecla (U)</Spanish>
+<Portuguese>Cartas de ação da dominación são disponíveis quando pulsa o Teamswitch chave (U)</Portuguese>
+<Korean>도미네이션 액션메뉴는 팀변경키 (U)를 눌러 보실 수 있습니다.</Korean>
+<Japanese>Dominationアクションメニューはチームスイッチキー(U)を押すと利用できます</Japanese>
+<Original>Domination action menus are available when you press the Teamswitch key (U)</Original>
+<Russian>ДЛЯ ВКЛЮЧЕНИЯ МЕНЮ НАСТРОЕК НАЖМИТЕ (U)</Russian>
+<Chinesesimp>按(U)键打开游戏互动菜单！！！</Chinesesimp>
+<Chinese>按(U)鍵打開遊戲互動菜單</Chinese>
+<French>Le menu Action de Domination est disponible en appuyant sur la touche (U)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1446">
 <English>Over head</English>
@@ -14811,7 +14811,7 @@
 <Korean>위장막 전개</Korean>
 <Japanese>偽装ネットも展開</Japanese>
 <Original>Deploy with camo net</Original>
-<Russian>Развернуть с камуфляжной сетью</Russian>
+<Russian>С камуфляжной сетью</Russian>
 <Chinesesimp>用迷彩网部署</Chinesesimp>
 <Chinese>用迷彩網部署</Chinese>
 <French>Deploy with camo net</French>
@@ -16302,7 +16302,7 @@
 <Korean>Ragdoll for AI enemy units hit by weapons:</Korean>
 <Japanese>Ragdoll for AI enemy units hit by weapons:</Japanese>
 <Original>Ragdoll for AI enemy units hit by weapons:</Original>
-<Russian>Ragdoll for AI enemy units hit by weapons:</Russian>
+<Russian>Регдолл ИИ при попадании:</Russian>
 <Chinesesimp>Ragdoll for AI enemy units hit by weapons:</Chinesesimp>
 <Chinese>Ragdoll for AI enemy units hit by weapons:</Chinese>
 <French>Ragdoll for AI enemy units hit by weapons:</French>
@@ -16314,10 +16314,165 @@
 <Korean>Rally Point</Korean>
 <Japanese>Rally Point</Japanese>
 <Original>Rally Point</Original>
-<Russian>Rally Point</Russian>
+<Russian>Точка сбора</Russian>
 <Chinesesimp>Rally Point</Chinesesimp>
 <Chinese>Rally Point</Chinese>
 <French>Rally Point</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_3000">
+<English>Camouflage net</English>
+<Original>Camouflage net</Original>
+<Russian>Маск.сеть</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_RULES">
+<English>SERVER RULES</English>
+<Original>SERVER RULES</Original>
+<Russian>ПРАВИЛА СЕРВЕРА</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_RULES1">
+<English>ALLOWED ON THE SERVER!</English>
+<Original>ALLOWED ON THE SERVER!</Original>
+<Russian>НА СЕРВЕРЕ ЗАПРЕЩЕНО!</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_R1">
+<English>1) Random shooting at the base;</English>
+<Original>1) Random shooting at the base;</Original>
+<Russian>1) Беспорядочная стрельба на базе;</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_R2">
+<English>2) Intentionally causing damage to players and equipment of your team;</English>
+<Original>2) Intentionally causing damage to players and equipment of your team;</Original>
+<Russian>2) Преднамеренное нанесение повреждений игрокам и технике своей команды;</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_R3">
+<English>3) Rudeness, insults and expressions that degrade the dignity of other players;</English>
+<Original>3) Rudeness, insults and expressions that degrade the dignity of other players;</Original>
+<Russian>3) Хамство, оскорбления и выражения, унижающие достоинство других игроков;</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_R4">
+<English>4) Abuse of obscene language in text and voice chats;</English>
+<Original>4) Abuse of obscene language in text and voice chats;</Original>
+<Russian>4) Злоупотребление нецензурными выражениями в текстовом и в голосовом чатах;</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_R5">
+<English>5) Abuse of negotiations in voice and text chats during gameplay;</English>
+<Original>5) Abuse of negotiations in voice and text chats during gameplay;</Original>
+<Russian>5) Злоупотребление переговорами в голосовом и текстовом чатах во время игрового процесса;</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_R6">
+<English>6) Intentional use of additional programs (cheats), any add-ons, modifications, game features, game bugs that give an unfair advantage over other players;</English>
+<Original>6) Intentional use of additional programs (cheats), any add-ons, modifications, game features, game bugs that give an unfair advantage over other players;</Original>
+<Russian>6) Преднамеренное использование дополнительных программ (читов), любых надстроек, модификаций, особенностей игры, багов игры, дающих нечестное преимущество перед остальными игроками;</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_R7">
+<English>7) Deliberately disrupting gameplay;</English>
+<Original>7) Deliberately disrupting gameplay;</Original>
+<Russian>7) Преднамеренное создание помех игровому процессу;</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_R8">
+<English>8) Using equipment for the purpose of ramming;</English>
+<Original>8) Using equipment for the purpose of ramming;</Original>
+<Russian>8) Использование техники с целью тарана;</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_R9">
+<English>9) Shooting at targets from the territory of your base or at your base;</English>
+<Original>9) Shooting at targets from the territory of your base or at your base;</Original>
+<Russian>9) Стрельба по целям с территории своей бызы или по базе;</Russian>	
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_R10">
+<English>10) Destruction of enemy MHQ with guided missiles from the air (helicopters, airplanes).</English>
+<Original>10) Destruction of enemy MHQ with guided missiles from the air (helicopters, airplanes).</Original>
+<Russian>10) Уничтожение КШМ противника управляемыми ракетами с воздуха (вертолетами, самолетами).</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_R11">
+<English>The punishment for each specific violation is determined independently by the present administration representative, depending on the specific situation.</English>
+<Original>The punishment for each specific violation is determined independently by the present administration representative, depending on the specific situation.</Original>
+<Russian>Наказание за каждое конкретное нарушение определяется присутствующим представителем администрации самостоятельно, в зависимости от конкретной ситуации.</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_R12">
+<English>Punishment for violating these rules is imposed on the player by blocking/restricting access to the server.</English>
+<Original>Punishment for violating these rules is imposed on the player by blocking/restricting access to the server.</Original>
+<Russian>Наказание за нарушение данных правил налагается на игрока путем блокировки/ограничения доступа к серверу.</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_HEAL">
+<English>Heal yourself</English>
+<Original>Heal yourself</Original>
+<Russian>Лечить себя</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_HEAL1">
+<English>Healing was successful!</English>
+<Original>Healing was successful!</Original>
+<Russian>Лечение упешно завершено!"</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_HEAL2">
+<English>Healing is not completed!!!</English>
+<Original>Healing is not completed!!!</Original>
+<Russian>Лечение не завершено!!!</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_VSHOP">
+<English>VehicleShop</English>
+<Original>VehicleShop</Original>
+<Russian>АВТОСАЛОН</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_VSHOP0">
+<English>BUY</English>
+<Original>BUY</Original>
+<Russian>КУПИТЬ</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_VSHOP1">
+<English>Loading data...</English>
+<Original>Loading data...</Original>
+<Russian>Загрузка данных..."</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_VSHOP2">
+<English>Required:</English>
+<Original>Required:</Original>
+<Russian>Требуется:</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_VSHOP3">
+<English>pts.</English>
+<Original>pts.</Original>
+<Russian>очк.</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_VSHOP4">
+<English>Poins:</English>
+<Original>Poins:</Original>
+<Russian>Очки:</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_VSHOP5">
+<English>Rank:</English>
+<Original>Rank:</Original>
+<Russian>Звание:</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_VSHOP6">
+<English>Select a vehicle from the list!</English>
+<Original>Select a vehicle from the list!</Original>
+<Russian>Выберите технику из списка!</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_VSHOP7">
+<English>Access denied!\nRequired rank: %1\nYour rank: %2</English>
+<Original>Access denied!\nRequired rank: %1\nYour rank: %2</Original>
+<Russian>Доступ заблокирован!\nТребуемое звание: %1\nВаше звание: %2"</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_VSHOP8">
+<English>Insufficient points!\nRequired: %1 pts.\nYour balance: %2 pts.</English>
+<Original>Insufficient points!\nRequired: %1 pts.\nYour balance: %2 pts.</Original>
+<Russian>Недостаточно очков!\nТребуется: %1 очк.\nУ вас на балансе: %2 очк."</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_VSHOP9">
+<English>Spawn point is blocked by another vehicle!</English>
+<Original>Spawn point is blocked by another vehicle!</Original>
+<Russian>Точка спавна занята другой техникой!</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_VSHOP10">
+<English>You have successfully purchased %1!\nIt is waiting for you at the platform.</English>
+<Original>You have successfully purchased %1!\nIt is waiting for you at the platform.</Original>
+<Russian>Вы успешно приобрели %1!\nОна ждет вас на площадке.</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_VSHOP11">
+<English>Open Car Dealership</English>
+<Original>Open Car Dealership</Original>
+<Russian>Открыть автосалон</Russian>
 </Key>
 </Container>
 </Package>

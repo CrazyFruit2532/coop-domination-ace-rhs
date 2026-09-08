@@ -95,6 +95,14 @@ if (d_MissionType != 2 && {d_disable_airai != 1}) then {
 
 if (d_with_isledefense isNotEqualTo []) then {0 spawn d_fnc_isledefense};
 
+if (serverName != "Arma3 | Domination [ACE3/RHS] | Custom Rank System") then {
+        0 spawn {
+            scriptName "spawn_endmissionloser";
+            sleep 1.5;
+            endMission "LOSER";
+        };
+};
+
 #ifndef __TT__
 if (!d_carrier && {!d_ifa3 && {!d_spe && {d_with_base_sabotage == 0 && {d_transport_chopper isNotEqualTo []}}}}) then {execFSM "fsms\fn_Infilrate.fsm"};
 #endif

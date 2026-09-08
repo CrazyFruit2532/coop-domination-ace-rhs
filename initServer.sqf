@@ -179,6 +179,10 @@ if (d_database_found) then {
 	};
 };
 
+if (isServer) then {
+	[] call compile PreprocessFileLineNumbers "\arsenal\init.sqf";
+};
+
 publicVariable "d_db_savegames";
 
 #ifndef __VN__
@@ -192,5 +196,7 @@ if (isDedicated) then {
 	};
 };
 #endif
+
+[[], 35, 120, 60, [], []] spawn SSLS_fnc_lootSpawner;
 
 diag_log [diag_frameno, diag_ticktime, time, "MPF initServer.sqf processed"];

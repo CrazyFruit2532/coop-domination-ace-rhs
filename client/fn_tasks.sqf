@@ -63,6 +63,30 @@ Arma Only — You may not convert or adapt this material to be used in other gam
 Share Alike — If you adapt, or build upon this material, you may distribute the resulting material only under the same license.<br/>
 "]];
 
+player createDiarySubject ["menu1",localize "$STR_DOM_MISSIONSTRING_RULES"];
+
+private _barules = [
+	"", __BRBR,
+	localize "STR_DOM_MISSIONSTRING_RULES", __BRBR,
+	localize "STR_DOM_MISSIONSTRING_RULES1", __BRBR,
+	localize "STR_DOM_MISSIONSTRING_R1", __BR,
+	localize "STR_DOM_MISSIONSTRING_R2", __BR,
+	localize "STR_DOM_MISSIONSTRING_R3", __BR,
+	localize "STR_DOM_MISSIONSTRING_R4", __BR,
+	localize "STR_DOM_MISSIONSTRING_R5", __BR,
+	localize "STR_DOM_MISSIONSTRING_R6", __BR,
+	localize "STR_DOM_MISSIONSTRING_R7", __BR,
+	localize "STR_DOM_MISSIONSTRING_R8", __BR,
+	localize "STR_DOM_MISSIONSTRING_R9", __BR,
+	localize "STR_DOM_MISSIONSTRING_R10", __BRBR,
+	localize "STR_DOM_MISSIONSTRING_R11", __BR,
+	localize "STR_DOM_MISSIONSTRING_R12", __BRBRBR,
+	"Contacts for communication", __BRBR,
+	"Discord server: https://discord.gg/8VT5ujUYna", __BR,
+	"Telegram community: https://t.me/arma3domination", __BR
+];
+
+player createDiaryRecord ["menu1", [localize "$STR_DOM_MISSIONSTRING_RULES", _barules joinString ""]];
 if (d_database_found && {getClientStateNumber < 10}) then {
 	if (!isNil "d_db_savegames" && {serverCommandAvailable "#shutdown" || {isServer}}) then {
 		player createDiarySubject ["dDBLoad", localize "STR_DOM_MISSIONSTRING_1750"];

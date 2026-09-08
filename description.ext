@@ -30,15 +30,15 @@ class CfgWorlds {
 	class Any {
 		author = "Xeno";
 		description = "$STR_DOM_MISSIONSTRING_265";
-		pictureMap = "pics\dompmap_ca.paa";
+//		pictureMap = "pics\dompmap_ca.paa";
 		pictureShot = "pics\domls.paa";
 		loadingTexts[] = {
-			"Domination is available for many mods and islands including CUP, RHS, IFA3, Unsung and CDLC like Global Mobilization, S.O.G. Prairie Fire, CSLA, Western Sahara and Spearhead 1944",
-			"There is also a PvPvE Domination TT (Two Teams) version available",
-			"A donation is always welcome... :)",
-			"Did you know that the first Domination version came out 2007 for Arma 1?",
-			"You can configure Domination for your needs with more than 130 server params available in the lobby or via database",
-			"If you have problems with a server ask on the server discord or forums. The Domination discord server is only for the mission!"
+		"Domination доступна для многих модов и островов, включая CUP, RHS, IFA3, Unsung и такие CDLC, как Global Mobilization, S.O.G. Prairie Fire, CSLA, Western Sahara и Spearhead 1944",
+		"Также доступна PvPvE-версия Domination TT (Two Teams)",
+		"Пожертвования всегда приветствуются... :)",
+		"Знаете ли вы, что первая версия Domination вышла в 2007 году для Arma 1?",
+		"Вы можете настроить Domination под свои нужды с помощью более чем 130 серверных параметров, доступных в лобби или через базу данных",
+		"Если у вас возникли проблемы с сервером, спросите в Discord или на форуме этого сервера. Discord-сервер Domination предназначен только для самой миссии!"
 		};
 	};
 };
@@ -53,7 +53,7 @@ class Header {
 #endif
 	minPlayers = 1;
 #ifdef __ALTIS__
-	maxPlayers = 46;
+	maxPlayers = 40;
 #endif
 #ifdef __CUP_CHERNARUS__
 	maxPlayers = 41;
@@ -106,7 +106,7 @@ joinUnassigned = false; // auto assign
 
 // 0 = Global, 1 = Side, 2 = Command, 3 = Group, 4 = Vehicle, 5 = Direct, 6 = System
 // {channelid, disablechat, disablevoice}
-disableChannels[] = {{0,false,true},{1,false,true},{6,true,true}};
+disableChannels[] = {{5,false,false},{6,false,false}};
 enableItemsDropping = 0;
 
 //(0 - default, options based; 1 forced on; 2 forced off)
@@ -178,11 +178,13 @@ class CfgRemoteExec {
 		// 0 - remote execution is blocked
 		// 1 - only whitelisted functions / commands are allowed
 		// 2 - remote execution is fully allowed, ignoring the whitelist (default, because of backward compatibility)
-		mode = 1;
+		// mode = 1;
+		mode = 2;
 		// jip - Join In Progress settings
 		// 0 - JIP flag can not be set
 		// 1 - JIP flag can be set (default
-		jip = 0;
+		// jip = 0;
+		jip = 1;
 		//your functions here
 		//class YourFunction1 {
 			  //allowedTargets=0; // can target anyone (default)
@@ -329,6 +331,7 @@ class CfgRemoteExec {
 		class d_fnc_selectleader {allowedTargets = 2;};
 		class d_fnc_acurator {allowedTargets = 2;};
 		class d_fnc_createrpoint {allowedTargets = 2;};
+		class d_vshop_fnc_serverBuyVehicle { allowedTargets = 2; }; // vehicle shop
 #ifdef __TT__
 		class d_fnc_plcheckkillblufor {allowedTargets = 2;};
 		class d_fnc_plcheckkillopfor {allowedTargets = 2;};
@@ -640,14 +643,14 @@ class Params {
 	class d_with_ranked {
 		title = "$STR_DOM_MISSIONSTRING_1112";
 		values[] = {0,1,2};
-		default = 1;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_2018"};
 	};
 	
 	class d_save_to_mpns {
-		title = "$STR_DOM_MISSIONSTRING_2094";
+		title = "$STR_DOM_MISSIONSTRING_2094"; //Сохранение прогресса миссии в missionProfileNamespace, если база данных SQL
 		values[] = {0,1,2};
-		default = 1;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_2098"};
 	};
 	
@@ -826,7 +829,7 @@ class Params {
 	class d_with_dynsim {
 		title = "$STR_DOM_MISSIONSTRING_1735";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
@@ -845,9 +848,9 @@ class Params {
 	};
 	
 	class d_disable_dom_weapon_mgmt {
-		title = "$STR_DOM_MISSIONSTRING_DISABLE_WEAPON_MGMT";
+		title = "$STR_DOM_MISSIONSTRING_DISABLE_WEAPON_MGMT"; //Отключает контроль оружия и инвентаря в ранговой версии
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 
@@ -903,14 +906,14 @@ class Params {
 	class d_with_minefield {
 		title = "$STR_DOM_MISSIONSTRING_1960";
 		values[] = {0,1};
-		default = 1;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_va_percentage {
 		title = "$STR_DOM_MISSIONSTRING_1992";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
@@ -924,7 +927,7 @@ class Params {
 	class d_playerspectateatbase {
 		title = "$STR_DOM_MISSIONSTRING_2057";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
@@ -952,7 +955,7 @@ class Params {
 	class d_weather {
 		title = "$STR_DOM_MISSIONSTRING_1164";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
@@ -960,7 +963,7 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1164a";
 		values[] = {0,1};
 #ifndef __WS__
-		default = 0;
+		default = 1;
 #else
 		default = 1;
 #endif
@@ -982,7 +985,7 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1732";
 		values[] = {0,1};
 #ifdef __ALTIS__
-		default = 0;
+		default = 1;
 #endif
 #ifdef __STRATIS__
 		default = 0;
@@ -1012,7 +1015,7 @@ class Params {
 		default = 1;
 #endif
 #ifdef __MALDEN__
-		default = 0;
+		default = 1;
 #endif
 #ifdef __TTMALDEN__
 		default = 1;
@@ -1033,7 +1036,7 @@ class Params {
 		default = 1;
 #endif
 #ifdef __WS__
-		default = 0;
+		default = 1;
 #endif
 #ifdef __SPE__
 		default = 1;
@@ -1078,7 +1081,7 @@ class Params {
 #ifdef __TT__
 		default = 0;
 #else
-		default = 1;
+		default = 0;
 #endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
@@ -1144,7 +1147,7 @@ class Params {
 	class d_Terraindetail {
 		title = "$STR_DOM_MISSIONSTRING_1175";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
@@ -1284,14 +1287,14 @@ class Params {
 	class d_WithAmbientRadio {
 		title = "$STR_DOM_MISSIONSTRING_1948";
 		values[] = {0,1};
-		default = 1;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
 	class d_noambient_bf_sounds_setting {
 		title = "$STR_DOM_MISSIONSTRING_DISABLE_AMBIENT_BATTLEFIELD_SOUNDS";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
@@ -1305,7 +1308,7 @@ class Params {
 	class d_with_3Dicon {
 		title = "$STR_DOM_MISSIONSTRING_1961";
 		values[] = {0,1};
-		default = 1;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 
@@ -1319,7 +1322,7 @@ class Params {
 	class d_score_needed_to_fly {
 		title = "$STR_DOM_MISSIONSTRING_2058";
 		values[] = {-1, 10, 50, 100, 500, 1000, 2000, 5000};
-		default = 10;
+		default = -1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1063","10","50","100","500","1000","2000","5000"};
 	};
 
@@ -1361,21 +1364,21 @@ class Params {
 	class d_engineerfull {
 		title = "$STR_DOM_MISSIONSTRING_1193";
 		values[] = {0,1};
-		default = 1;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
 	class d_mhqvec_create_cooldown {
 		title = "$STR_DOM_MISSIONSTRING_1824";
 		values[] = {0, 60, 120, 300, 600, 1200, 1800};
-		default = 120;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_363","60","120","300","600","1200","1800"};
 	};
 
 	class d_launcher_cooldown {
 		title = "$STR_DOM_MISSIONSTRING_1986";
 		values[] = {0, 60, 120, 180, 240, 300};
-		default = 120;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_363","60","120","180","240","300"};
 	};
 	
@@ -1417,7 +1420,7 @@ class Params {
 	class d_artycheckfriendlies {
 		title = "$STR_DOM_MISSIONSTRING_2086";
 		values[] = {0,1};
-		default = 1;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
@@ -1721,7 +1724,7 @@ class Params {
 	class d_max_camp_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1930";
 		values[] = {1, 2, 3, 4, 5, -1};
-		default = -1;
+		default = 5;
 		texts[] = {"1", "2", "3", "4", "5", "3 to 5"};
 	};
 
@@ -1749,14 +1752,14 @@ class Params {
 	class d_MHQDisableNearMT {
 		title = "$STR_DOM_MISSIONSTRING_1057";
 		values[] = {0,500,700,900,1000,2000};
-		default = 500;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_363","500 m","700 m","900 m","1000 m","2000 m"};
 	};
 
 	class d_NoMHQTeleEnemyNear {
 		title = "$STR_DOM_MISSIONSTRING_1062";
 		values[] = {0,50,100,200,500};
-		default = 50;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1063","50 m","100 m","200 m","500 m"};
 	};
 
@@ -1858,14 +1861,14 @@ class Params {
 	class d_smallgrps {
 		title = "$STR_DOM_MISSIONSTRING_2007";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_skillfps {
 		title = "$STR_DOM_MISSIONSTRING_2007_FPS";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
@@ -1962,14 +1965,14 @@ class Params {
 	class d_HALOJumpHeight {
 		title = "$STR_DOM_MISSIONSTRING_1108";
 		values[] = {500, 700, 888, 1000, 2000, 5000};
-		default = 2000;
+		default = 500;
 		texts[] = {"500 m","700 m","888 m","1000 m","2000 m","5000 m"};
 	};
 	
 	class d_force_steerable_parachutes {
 		title = "$STR_DOM_MISSIONSTRING_FORCE_STEERABLE_PARACHUTES";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	

@@ -82,15 +82,15 @@ if (d_with_ace) then {
 #ifdef __TT__
 if (isNil "d_tt_points") then {
 	d_tt_points = [
-		30, // points for the main target winner team
-		7, // points if draw (main target)
-		15, // points for destroying main target radio tower
-		5, // points for main target mission
-		10, // points for sidemission
-		5, // points for capturing a camp (main target)
-		10, // points that get subtracted when loosing a mt camp again
-		4, // points for destroying a vehicle of the other team
-		2 // points for killing a member of the other team
+		30, // очки за победу команды, выполнившей главную задачу
+		7, // очки в случае ничьей (главная задача)
+		15, // очки за уничтожение радиовышки главной задачи
+		5, // очки за выполнение миссии главной задачи
+		10, // очки за выполнение побочной миссии
+		5, // очки за захват лагеря (главная задача)
+		10, // очки, которые вычитаются при повторной потере лагеря главной задачи
+		4, // очки за уничтожение техники противоположной команды
+		2 // очки за убийство участника противоположной команды
 	];
 };
 #endif
@@ -118,56 +118,56 @@ if (isServer) then {
 	// set enemy mode
 	d_WithLessArmor call d_fnc_setenemymode;
 
-	// enemy ai skill: [base skill, random value (random 0.3) that gets added to the base skill]
+	// навык вражеского ИИ: [базовый навык, случайное значение (random 0.3), которое добавляется к базовому навыку]
 	d_skill_array = [[0.1,0.05], [0.2,0.1], [0.4,0.2], [0.6,0.3], [0.65,0.3]] select d_EnemySkill;
 	
 	if (isNil "d_addscore_a") then {
 		d_addscore_a = [
-			5, // 1 - barracks building destroyed at main target
-			5, // 2 - mobile HQ building destroyed at main target
-			5, // 3 - radio tower destroyed at main target
-			5, // 4 - player has taken camp
-			5, // 5 - player has resolved main target mission
-			30, // 6 - extra points seizing the main target
-			10, // 7 - points for reviving another player
-			10, // 8 - points for helping solving the sidemission
-			[3,2,1,0], // 9 - points for repairing/refueling a vehicle
-			5, // 10 - points for healing another unit
-			3, // 11 - points for another player healing at a player mash
-			5, // 12 - points for another player spawning at squad leader
-			1, // 13 - points for transporting another player in a vehicle
-			20 // 14 - points for bringing a wreck to the wreck repair point
+			5, // 1 - здание казармы уничтожено на главной задаче
+			5, // 2 - здание мобильного штаба уничтожено на главной задаче
+			5, // 3 - радиовышка уничтожена на главной задаче
+			5, // 4 - игрок захватил лагерь
+			5, // 5 - игрок выполнил миссию главной задачи
+			30, // 6 - дополнительные очки за захват главной задачи
+			10, // 7 - очки за реанимацию другого игрока
+			10, // 8 - очки за помощь в выполнении побочной миссии, 
+			[3,2,1,0], // 9 - очки за ремонт/заправку техники
+			5, // 10 - очки за лечение другого бойца
+			3, // 11 - очки, когда другой игрок лечится в полевом госпитале игрока
+			5, // 12 - очки, когда другой игрок возрождается на лидере отряда
+			1, // 13 - очки за транспортировку другого игрока в технике
+			20 // 14 - очки за доставку обломков на точку ремонта техники
 		];
 	};
 };
 
 if (isNil "d_ranked_a") then {
 	d_ranked_a = [
-		20, // points that an engineer must have to repair/refuel a vehicle
-		[3,2,1,0], // points engineers get for repairing an air vehicle, tank, car, other
-		10, // points an artillery operator needs for a strike
-		3, // points in the AI version for recruiting one soldier
-		10, // points a player needs for an AAHALO parajump
-		10, // points that get subtracted for creating a vehicle at a MHQ
-		20, // points needed to create a vehicle at a MHQ
-		3, // points a medic gets if someone heals at his Mash
-		["Corporal","Sergeant","Lieutenant","Lieutenant","Sergeant","Corporal"], // Ranks needed to drive different vehicles, starting with: kindof wheeled APC, kindof Tank, kindof Helicopter (except the inital 4 helis), Plane, Ships/Boats, StaticWeapon
-		30, // points that get added if a player is xxx m in range of a main target when it gets cleared
-		400, // range the player has to be in to get the main target extra points
-		10, // points that get added if a player is xxx m in range of a sidemission when the sidemission is resolved
-		200, // range the player has to be in to get the sidemission extra points
-		20, // points needed for an egineer to rebuild the support buildings at base
-		10, // not used anymore !!! Was points needed to build MG Nest before
-		5, // points needed in AI Ranked to call in an airtaxi
-		20, // points needed to call in an air drop
-		4, // points a medic gets when he heals another unit
-		1, // points that a player gets when transporting others
-		20, // points needed for activating satellite view
-		20, // points needed to build a FARP (engineer)
-		10, // points a player gets for reviving another player
-		20, // points a Squad Leader needs for CAS
-		20, // points a player gets for bringing a wreck to the repair point
-		30 // points a player needs for a combat UAV
+	20, // очки, которые должен иметь инженер для ремонта/заправки техники, 
+	[3,2,1,0], // очки, которые получают инженеры за ремонт воздушной техники, танка, машины, прочего
+	10, // очки, необходимые оператору артиллерии для вызова удара
+	3, // очки в версии с ИИ за наём одного солдата
+	1, // очки, необходимые игроку для прыжка с парашютом (AAHALO)
+	10, // очки, которые вычитаются за создание техники на мобильном штабе (MHQ)
+	20, // очки, необходимые для создания техники на мобильном штабе (MHQ)
+	3, // очки, которые получает медик, если кто-то лечится в его полевом госпитале (Mash)
+	["Corporal","Sergeant","Lieutenant","Lieutenant","Sergeant","Corporal"], // Звания, необходимые для управления разной техникой, начиная с: колёсный БТР, танк, вертолёт (кроме первых 4-х), самолёт, корабли/лодки, стационарное орудие
+	30, // очки, которые добавляются, если игрок находится в пределах xxx м от главной задачи в момент её зачистки
+	400, // расстояние (в метрах), на котором должен находиться игрок, чтобы получить доп. очки за главную задачу
+	10, // очки, которые добавляются, если игрок находится в пределах xxx м от побочной миссии в момент её выполнения
+	200, // расстояние (в метрах), на котором должен находиться игрок, чтобы получить доп. очки за побочную миссию
+	20, // очки, необходимые инженеру для восстановления построек поддержки на базе
+	10, // больше не используется !!! Раньше это были очки, необходимые для постройки пулемётного гнезда
+	5, // очки, необходимые в режиме AI Ranked для вызова воздушного такси
+	20, // очки, необходимые для вызова сброса груза с воздуха (air drop)
+	4, // очки, которые получает медик, когда лечит другого бойца
+	1, // очки, которые получает игрок за транспортировку других игроков
+	20, // очки, необходимые для активации спутникового режима обзора
+	20, // очки, необходимые для постройки передового пункта заправки и снабжения (FARP) (для инженера)
+	10, // очки, которые получает игрок за реанимацию другого игрока
+	20, // очки, необходимые лидеру отряда для вызова авиаподдержки (CAS)
+	20, // очки, которые получает игрок за доставку обломков на точку ремонта
+	30 // очки, необходимые игроку для использования боевого БПЛА (UAV)
 	];
 } else {
 	if (count d_ranked_a < 25) then {
@@ -200,27 +200,27 @@ if (isServer) then {
 	];
 };
 
-// chopper varname, type (0 = lift chopper, 1 = wreck lift chopper, 2 = normal chopper), marker name, unique number (same as in d_init.sqf), marker type, marker color, marker text, chopper string name
+// имя переменной вертолёта, тип (0 = транспортный/грузовой, 1 = эвакуатор обломков, 2 = обычный), имя маркера, уникальный номер (такой же, как в d_init.sqf), тип маркера, цвет маркера, текст маркера, строковое имя вертолёта
 #ifndef __TT__
 d_choppers = [
-	["D_HR1",0,"d_chopper1",3001,"n_air","ColorWhite","1", localize "STR_DOM_MISSIONSTRING_7"], ["D_HR2",2,"d_chopper2",3002,"n_air","ColorWhite","2",""],
+	["D_HR1",0,"d_chopper1",3001,"n_air","ColorWhite","1", localize "STR_DOM_MISSIONSTRING_7"], ["D_HR2",0,"d_chopper2",3002,"n_air","ColorWhite","2",""],
 	["D_HR3",2,"d_chopper3",3003,"n_air","ColorWhite","3",""], ["D_HR4",1,"d_chopper4",3004,"n_air","ColorWhite","W", localize "STR_DOM_MISSIONSTRING_10"],
 	["D_HR5",2,"d_chopper5",3005,"n_air","ColorWhite","5",""], ["D_HR6",2,"d_chopper6",3006,"n_air","ColorWhite","6",""]
 ];
 #else
 d_choppers_blufor = [
-	["D_HR1",0,"d_chopper1",3001,"n_air","ColorWhite","1", localize "STR_DOM_MISSIONSTRING_7"], ["D_HR2",2,"d_chopper2",3002,"n_air","ColorWhite","2",""],
+	["D_HR1",0,"d_chopper1",3001,"n_air","ColorWhite","1", localize "STR_DOM_MISSIONSTRING_7"], ["D_HR2",0,"d_chopper2",3002,"n_air","ColorWhite","2",""],
 	["D_HR3",2,"d_chopper3",3003,"n_air","ColorWhite","3",""], ["D_HR4",1,"d_chopper4",3004,"n_air","ColorWhite","W", localize "STR_DOM_MISSIONSTRING_10"],
 	["D_HR5",2,"d_chopper5",3005,"n_air","ColorWhite","5",""], ["D_HR6",2,"d_chopper6",3006,"n_air","ColorWhite","6",""]
 ];
 d_choppers_opfor = [
-	["D_HRO1",0,"d_choppero1",4001,"n_air","ColorWhite","1", localize "STR_DOM_MISSIONSTRING_7"], ["D_HRO2",2,"d_choppero2",4002,"n_air","ColorWhite","2",""],
+	["D_HRO1",0,"d_choppero1",4001,"n_air","ColorWhite","1", localize "STR_DOM_MISSIONSTRING_7"], ["D_HRO2",0,"d_choppero2",4002,"n_air","ColorWhite","2",""],
 	["D_HRO3",2,"d_choppero3",4003,"n_air","ColorWhite","3",""], ["D_HRO4",1,"d_choppero4",4004,"n_air","ColorWhite","W", localize "STR_DOM_MISSIONSTRING_10"],
 	["D_HRO5",2,"d_choppero5",4005,"n_air","ColorWhite","5",""], ["D_HRO6",2,"d_choppero6",4006,"n_air","ColorWhite","6",""]
 ];
 #endif
 
-// vehicle varname, unique number (same as in d_init.sqf), marker name, marker type, marker color, marker text, vehicle string name
+// имя переменной техники, уникальный номер (такой же, как в d_init.sqf), имя маркера, тип маркера, цвет маркера, текст маркера, строковое имя техники
 #ifndef __TT__
 d_p_vecs = [
 	["D_MRR1",0,"d_mobilerespawn1","b_hq","ColorYellow","1",localize "STR_DOM_MISSIONSTRING_12"],["D_MRR2",1,"d_mobilerespawn2","b_hq","ColorYellow","2",localize "STR_DOM_MISSIONSTRING_13"],
@@ -274,11 +274,11 @@ if (hasInterface) then {
 	
 	if (d_with_ai) then {d_current_ai_num = 0};
 
-	// distance a player has to transport others to get points
+	// расстояние, на которое игрок должен перевезти других, чтобы получить очки
 	d_transport_distance = 500;
 
-	// rank needed to fly the wreck lift chopper
-	d_wreck_lift_rank = "CAPTAIN";
+	// звание, необходимое для пилотирования вертолёта-эвакуатора обломков
+	d_wreck_lift_rank = "LIEUTENANT";
 
 	d_disable_viewdistance = d_ViewdistanceChange == 1;
 	
@@ -299,23 +299,23 @@ if (hasInterface) then {
 #endif
 
 	if (d_with_ai) then {
-		// additional AI recruit buildings
-		// these have to be placed in the editor, give them a var name in the editor
-		// only client handling means, no damage handling done for those buildings (contrary to the standard AI hut)
-		// example:
+		// дополнительные здания для найма ИИ-бойцов
+		// они должны быть размещены в редакторе, задайте им имя переменной в редакторе
+		// обрабатываются только на стороне клиента, то есть урон по этим зданиям не просчитывается (в отличие от стандартного барака ИИ)
+		// пример:
 		// d_additional_recruit_buildings = [my_ai_building1, my_ai_building2];
 		d_additional_recruit_buildings = [];
 	};
 	
-	// d_reserved_slot gives you the ability to add reserved slots for admins
-	// if you don't log in when you've chosen the slot, you'll get kicked after ~20 once the intro ended
-	// default is no check, example: d_reserved_slot = ["d_artop_1"];
+	// d_reserved_slot позволяет добавлять резервные слоты для администраторов
+	// если вы заняли этот слот и не вошли в систему (как админ), вас кикнет примерно через 20 секунд после завершения интро
+	// по умолчанию проверка отключена, пример: d_reserved_slot = ["d_artop_1"];
 	if (isNil "d_reserved_slot") then {
 		d_reserved_slot = [];
 	};
 
-	// d_uid_reserved_slots and d_uids_for_reserved_slots gives you the possibility to limit a slot
-	// you have to add the var names of the units to d_uid_reserved_slots and in d_uids_for_reserved_slots the UIDs of valid players
+	// d_uid_reserved_slots и d_uids_for_reserved_slots дают возможность ограничить доступ к слотам
+	// вам нужно добавить имена переменных юнитов в d_uid_reserved_slots, а в d_uids_for_reserved_slots — UID разрешенных игроков
 	// d_uid_reserved_slots = ["d_alpha_1", "d_bravo_3"];
 	// d_uids_for_reserved_slots = ["1234567", "7654321"];
 	if (isNil "d_uid_reserved_slots") then {
@@ -324,64 +324,64 @@ if (hasInterface) then {
 	};
 	
 	if (isNil "d_uids_def_choppers") then {
-		// If d_uids_initial_vecs is filled with player UIDs as strings player UIDs which are not in the array are getting kicked from
-		// the initially placed choppers and MHQs on base
+		// Если массив d_uids_initial_vecs заполнен строками с UID игроков, то игроки, которых нет в этом списке,
+		// будут автоматически выбрасываться из изначально размещенных на базе вертолётов и мобильных штабов (MHQ)
 		// d_uids_initial_vecs = ["1234567", "7654321"];
 		d_uids_def_choppers = [];
 	};
 	
-	// points needed to get a specific rank
-	// gets even used in the unranked versions
+	// очки, необходимые для получения определенного звания
+	// используется даже в версиях без ранговой системы (unranked)
 #ifndef __TT__
 	if (isNil "d_points_needed") then {
 		d_points_needed = [
-			20, // Corporal
-			50, // Sergeant
-			90, // Lieutenant
-			140, // Captain
-			200, // Major
-			270, // Colonel
-			500 // General
+			10, // Corporal
+			30, // Sergeant
+			60, // Lieutenant
+			90, // Captain
+			120, // Major
+			150, // Colonel
+			300 // General
 		];
 	};
 
 	if (isNil "d_points_needed_db") then {
 		d_points_needed_db = [
-			500, // Corporal
-			2000, // Sergeant
-			5000, // Lieutenant
-			9000, // Captain
-			14000, // Major
-			20000, // Colonel
-			30000 // General
+			10, // Corporal
+			30, // Sergeant
+			60, // Lieutenant
+			90, // Captain
+			120, // Major
+			150, // Colonel
+			300 // General
 		];
 	};
 #else
 	if (isNil "d_points_needed") then {
 		d_points_needed = [
-			100, // Corporal
-			400, // Sergeant
-			800, // Lieutenant
-			1600, // Captain
-			3000, // Major
-			5000, // Colonel
-			8000 // General
+			10, // Corporal
+			30, // Sergeant
+			60, // Lieutenant
+			90, // Captain
+			120, // Major
+			150, // Colonel
+			300 // General
 		];
 	};
 
 	if (isNil "d_points_needed_db") then {
 		d_points_needed_db = [
-			500, // Corporal
-			2000, // Sergeant
-			5000, // Lieutenant
-			9000, // Captain
-			14000, // Major
-			20000, // Colonel
-			30000 // General
+			10, // Corporal
+			30, // Sergeant
+			60, // Lieutenant
+			90, // Captain
+			120, // Major
+			150, // Colonel
+			300 // General
 		];
 	};
 #endif
-	// array now so players can select different air taxi types
+	// теперь это массив, чтобы игроки могли выбирать разные типы воздушного такси
 	if (d_with_airtaxi == 0) then {
 		d_taxi_aircrafts =
 #ifdef __OWN_SIDE_INDEPENDENT__
@@ -443,9 +443,9 @@ if (hasInterface) then {
 	};
 
 	if (isNil "d_launcher_cooldown") then {
-		// player AT launcher cooldown time, means, a player can't use a guided launcher like the Titan for 60
-		// The projectile gets deleted and a magazine added again to the player inventory
-		// can be changed in the database dom_settings table too
+		// время перезарядки (кулдаун) для противотанковых пусковых установок игрока. Это значит, что игрок не сможет использовать управляемые ПУ (такие как «Титан») в течение 60 секунд.
+		// выпущенный снаряд удаляется, а магазин возвращается обратно в инвентарь игрока.
+		// также этот параметр можно изменить в таблице dom_settings базы данных.
 		d_launcher_cooldown = d_launcher_cooldownp;
 	};
 	

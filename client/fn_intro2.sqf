@@ -125,7 +125,7 @@ sleep 5;
 ] spawn bis_fnc_typeText;
 
 sleep 8;
-"d_introtxt1" cutText [format [localize "STR_DOM_MISSIONSTRING_1434", actionKeysNames "TeamSwitch", actionKeysNames d_3dmarker_userakey_str, actionKeysNames d_earplugs_userakey_str], "PLAIN"];
+"d_introtxt1" cutText [format ["<t color='#4169E1' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_1434"], "PLAIN", -1, true, true];
 xr_phd_invulnerable = false;
 
 if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
@@ -142,9 +142,9 @@ sleep 3;
 };
 
 if (d_WithMHQTeleport == 0) then {
-	"d_introtxt2" cutText [format ["<t color='#ff0000' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_1988"], "PLAIN DOWN", -1, true, true];
+	"d_introtxt2" cutText [format ["<t color='#4169E1' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_1988"], "PLAIN DOWN", -1, true, true];
 	sleep 10;
 };
-"d_introtxt2" cutText [format ["<t color='#0000ff' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_2114"], "PLAIN DOWN", -1, true, true];
+"d_introtxt2" cutText [format ["<t color='#4169E1' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_2114"], "PLAIN DOWN", -1, true, true];
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom intro ended"];

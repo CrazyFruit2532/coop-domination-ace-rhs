@@ -95,7 +95,8 @@ publicVariable "d_mt_tower_pos";
 [_vec] call d_fnc_CheckMTHardTarget;
 d_mt_radio_down = false;
 if (d_ao_markers == 1) then {
-	["d_m_t_rt", _poss, "ICON","ColorBlack", [0.5,0.5], localize "STR_DOM_MISSIONSTRING_521", 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
+//	["d_m_t_rt", _poss, "ICON","ColorBlack", [0.5,0.5], localize "STR_DOM_MISSIONSTRING_521", 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
+	["d_m_t_rt", _poss, "ICON","ColorBlack", [1,1], localize "STR_DOM_MISSIONSTRING_521", 0, "selector_selectedMission"] call d_fnc_CreateMarkerGlobal;
 	["d_m_t_rt", "STR_DOM_MISSIONSTRING_521"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 };
 
@@ -243,7 +244,8 @@ if (d_ao_check_for_ai in [0, 1]) then {
 			private _maname = format ["d_camp_%1", _wf call d_fnc_markername];
 			__TRACE_2("","_i","_maname")
 			deleteMarker _maname;
-			[_maname, _poss, "ICON", "ColorBlack", [0.5, 0.5], str _i, 0, d_strongpointmarker] call d_fnc_CreateMarkerGlobal;
+//			[_maname, _poss, "ICON", "ColorBlack", [0.5, 0.5], str _i, 0, d_strongpointmarker] call d_fnc_CreateMarkerGlobal;
+			[_maname, _poss, "ICON", "ColorBlack", [1, 1], str _i, 0, "mil_flag_noShadow"] call d_fnc_CreateMarkerGlobal;
 			_wf setVariable ["d_camp_mar", _maname];
 		};
 		_flagPole setFlagTexture (call d_fnc_getenemyflagtex);

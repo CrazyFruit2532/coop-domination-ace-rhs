@@ -47,7 +47,7 @@ class D_VecDialog {
 			style = 0;
 			colorBackgroundActive[] = {1,1,1,0.1};
 			text = "$STR_DOM_MISSIONSTRING_1324"; 
-			action = "[vehicle player, player] call d_fnc_dropammoboxdx";
+			action = "closeDialog 0;[vehicle player, player] call d_fnc_dropammoboxdx";
 			x = 0.20;
 			y = 0.47;
 			w = 0.23;
@@ -55,7 +55,7 @@ class D_VecDialog {
 		class LoadAmmoButton: DropAmmoButton {
 			idc = 44452;
 			text = "$STR_DOM_MISSIONSTRING_1325"; 
-			action = "0 = [vehicle player, player] spawn d_fnc_loaddroppedx";
+			action = "closeDialog 0;0 = [vehicle player, player] spawn d_fnc_loaddroppedx";
 			y = 0.52;
 		};
 		class CreateVecCaption: VecDialogCaption2 {
@@ -79,7 +79,7 @@ class D_VecDialog {
 			idc = 44451;
 			style = 2;
 			text = "$STR_DOM_MISSIONSTRING_1326"; 
-			action = "call d_fnc_create_vecx";
+			action = "closeDialog 0;call d_fnc_create_vecx";
 			x = 0.52;
 			y = 0.59;
 		};
@@ -113,7 +113,7 @@ class D_VecDialog {
 			idc = 44462;
 			style = 2;
 			text = "$STR_DOM_MISSIONSTRING_1328"; 
-			action = "call d_fnc_deploy_mhq";
+			action = "closeDialog 0;call d_fnc_deploy_mhq";
 			x = 0.37;
 			y = 0.8;
 		};

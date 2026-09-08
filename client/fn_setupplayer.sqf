@@ -343,12 +343,12 @@ if (d_MissionType != 2) then {
 if (d_ParaAtBase == 0) then {
 #ifndef __TT__
 	if (isNil {d_FLAG_BASE getVariable "d_jf_id"}) then {
-		d_FLAG_BASE setVariable ["d_jf_id", d_FLAG_BASE addAction [format ["<t color='#D64C30' size='1.2'>%1</t>", localize "STR_DOM_MISSIONSTRING_296"], {_this spawn d_fnc_paraj}, 0, 1.5, true, true, "", "true", 10]];
+		d_FLAG_BASE setVariable ["d_jf_id", d_FLAG_BASE addAction [format ["<t color='#4169E1' size='1.2'>%1</t>", localize "STR_DOM_MISSIONSTRING_296"], {_this spawn d_fnc_paraj}, 0, 1.5, true, true, "", "true", 10]];
 	};
 #else
 	private _base_flag = [d_EFLAG_BASE, d_WFLAG_BASE] select (d_player_side == blufor);
 	if (isNil {_base_flag getVariable "d_jf_id"}) then {
-		_base_flag setVariable ["d_jf_id", _base_flag addAction [format ["<t color='#D64C30' size='1.2'>%1</t>", localize "STR_DOM_MISSIONSTRING_296"], {_this spawn d_fnc_paraj}, 0, 1.5, true, true, "", "true", 10]];
+		_base_flag setVariable ["d_jf_id", _base_flag addAction [format ["<t color='#4169E1' size='1.2'>%1</t>", localize "STR_DOM_MISSIONSTRING_296"], {_this spawn d_fnc_paraj}, 0, 1.5, true, true, "", "true", 10]];
 	};
 #endif
 };
@@ -357,7 +357,7 @@ if (d_ParaAtBase == 0) then {
 if (d_MissionType != 2) then {
 	{
 		if (d_jumpflag_vec isEqualTo "") then {
-			_x setVariable ["d_jf_id", _x addAction [format ["<t color='#D64C30' size='1.2'>%1</t>", localize "STR_DOM_MISSIONSTRING_296"], {_this spawn d_fnc_paraj}, 1, 1.5, true, true, "", "true", 10]];
+			_x setVariable ["d_jf_id", _x addAction [format ["<t color='#4169E1' size='1.2'>%1</t>", localize "STR_DOM_MISSIONSTRING_296"], {_this spawn d_fnc_paraj}, 1, 1.5, true, true, "", "true", 10]];
 		} else {
 			_x setVariable ["d_jf_id", _x addAction [format ["<t color='#AAD9EF'>%1</t>", format [localize "STR_DOM_MISSIONSTRING_297", [d_jumpflag_vec, "CfgVehicles"] call d_fnc_GetDisplayName]], {_this spawn d_fnc_bike},[d_jumpflag_vec,1], 1.5, true, true, "", "true", 10]];
 		};
@@ -676,10 +676,10 @@ if (player getUnitTrait "Medic") then {
 d_x_loop_end = false;
 if (d_WithMHQTeleport == 0) then {
 #ifndef __TT__
-	d_FLAG_BASE addAction [format ["<t color='#FF0000' size='1.5'>%1</t>", localize "STR_DOM_MISSIONSTRING_533"], {call d_fnc_teleportx}, -1, 1.5, true, true, "", "true", 10];
+	d_FLAG_BASE addAction [format ["<t color='#4169E1' size='1.5'>%1</t>", localize "STR_DOM_MISSIONSTRING_533"], {call d_fnc_teleportx}, -1, 1.5, true, true, "", "true", 10];
 #else
 	private _base_flag = [d_EFLAG_BASE, d_WFLAG_BASE] select (d_player_side == blufor);
-	_base_flag addAction [format ["<t color='#FF0000' size='1.5'>%1</t>", localize "STR_DOM_MISSIONSTRING_533"], {call d_fnc_teleportx}, -1, 1.5, true, true, "", "true", 10];
+	_base_flag addAction [format ["<t color='#4169E1' size='1.5'>%1</t>", localize "STR_DOM_MISSIONSTRING_533"], {call d_fnc_teleportx}, -1, 1.5, true, true, "", "true", 10];
 #endif
 };
 

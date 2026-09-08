@@ -3692,7 +3692,7 @@ if (hasInterface) then {
 		if (d_pracs) exitWith {
 			["PRACS_SLA_Mi8amt","PRACS_SLA_BRDM_HQ","PRACS_SLA_BRDM_HQ_PKT","PRACS_SLA_MTLB_HQ"]
 		};
-		["O_MRAP_02_F", "O_Heli_Light_02_unarmed_F", "B_APC_Tracked_01_CRV_F", "rhsgref_BRDM2UM_vdv", "RHS_Mi8AMT_vvs"]
+		["O_MRAP_02_F", "O_Heli_Light_02_unarmed_F", "B_APC_Tracked_01_CRV_F", "rhs_tigr_m_3camo_vdv", "rhs_tigr_m_vdv", "RHS_Mi8AMT_vvs", "B_Heli_Light_01_F"]
 	};
 #endif
 #ifdef __OWN_SIDE_INDEPENDENT__
@@ -3709,7 +3709,7 @@ if (hasInterface) then {
 	};
 #endif
 #ifdef __TT__
-	["B_Heli_Light_01_F", "B_APC_Tracked_01_CRV_F", "O_Heli_Light_02_unarmed_F", "B_T_APC_Tracked_01_CRV_F", "O_MRAP_02_F", "B_MRAP_01_F", "B_APC_Tracked_01_CRV_F", "B_T_APC_Tracked_01_CRV_F"];
+	["rhs_tigr_m_vdv", "rhs_tigr_m_3camo_vdv", "RHS_Mi8mt_Cargo_vdv", "B_Heli_Light_01_F", "RHS_Ural_VDV_01", "rhs_kamaz5350_flatbed_cover_vdv", "rhsusf_m1043_w", "rhsusf_m1043_d", "RHS_UH60M2", "B_Heli_Light_01_F", "B_Truck_01_transport_F", "B_Truck_01_covered_F"];
 #endif
 
 	d_check_ammo_load_vecs = d_check_ammo_load_vecs apply {toLowerANSI _x};

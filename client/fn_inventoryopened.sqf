@@ -45,7 +45,11 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 				};
 			} else {
 				if (!d_no_ranked_weapons) then {
-					["Open", [nil, player]] call bis_fnc_arsenal;
+					if (d_with_ace) then { // added Babayka
+						[player, player, false] call ace_arsenal_fnc_openBox; 
+					} else {
+						["Open", [nil, player]] call bis_fnc_arsenal;
+					};
 				} else {
 					["Open", true] call bis_fnc_arsenal;
 				};
