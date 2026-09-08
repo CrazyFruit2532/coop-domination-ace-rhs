@@ -1,3 +1,9 @@
+Режим игры: COOP Domination (карты Altis, Malden)
+
+⚔️ СТОРОНЫ КОНФЛИКТА
+🔴 Красные (Игроки): Вооруженные Силы РФ
+🔵 Синие (AI Боты): Армия США
+
 📦 ОБЯЗАТЕЛЬНЫЕ МОДЫ (Основной пак)
 1. [CBA_A3](http://steamcommunity.com/sharedfiles/filedetails/?id=450814997)
 2. [ACE3](https://steamcommunity.com/sharedfiles/filedetails/?id=463939057)
